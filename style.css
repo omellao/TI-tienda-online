@@ -1,44 +1,232 @@
-body {
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 0;
-  background-color: #13293d;
-  display: flex;
-  justify-content: center;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200&family=Roboto:wght@100&display=swap');
+
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i');
+
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans", sans-serif;
 }
 
-div {
-  margin-top: 150px;
-  width: 300px;
-  border-radius: 5px;
-  background-color: #909fae;
-  padding: 20px;
-  box-shadow: 0px 0px 15px 0.5px black;
+body
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#171a4a 0%,#3d79735a 130px,#d9dbd5 130px, #a7a7a7 100%);
 }
 
-h1 {
-  text-align: center;
-}
-input[type="text"] {
-  background-color: #d6e1e7;
-  width: 100%;
-  padding: 12px 19px; /* Alto y derecha de palabra*/
-  margin: 8px 0; /*Margen de input (entre) */
-  display: inline-block;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  box-sizing: border-box; /* se adapta a la caja*/
+.cuadro_central
+{
+    position: relative;
+    width: 1396px;
+    max-width: 100%;
+    height: calc(100vh - 40px);
+    background: #fff;
+    box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.06),0 2px 5px 0 rgba(0,0,0,0.06);
+    display: flex;
 }
 
-input[type="submit"] {
-  width: 100%;
-  background-color: #3e92cc;
-  color: white;
-  padding: 12px 19px;
-  margin: 8px 0;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.cuadro_central .ladoizquierdo
+{
+    position: relative;
+    flex: 35%;
+    background: #dadddd;
+
 }
-input[type="submit"]:hover {
-  background-color: #2a628f;
+
+.cuadro_central .rigthSide
+{
+    position: relative;
+    flex: 65%;
+    background: #fafafa;
+    border: 1px solid #000;
+}
+
+
+.cuadro_central .ladoizquierdo::before
+{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(img/fondo.png);
+    opacity: 0.06;
+}
+.titulo_letra
+{
+    font-weight: 700;
+    color: rgb(255, 255, 255);
+}
+
+.header
+{
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.perfilimg
+{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.cover
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.nav_icons
+{
+    display: flex;
+}
+
+.nav_icons li
+{
+    display: flex;
+    justify-content: none;
+    cursor: pointer;
+    color: #358abbb5;
+    font-size: 1.5em;
+    margin-left: 22px;
+}
+
+.search_chat
+{
+    position: relative;
+    width: 100%;
+    height: 50px;
+    background: #9ae5f3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.search_chat div
+{
+    width: 100%;
+}
+
+.search_chat div input
+{
+    width: 100%;
+    outline: none;
+    border: none;
+    background: rgb(255, 255, 255);
+    padding: 6px;
+    height: 38px;
+    border-radius: 30px;
+    font-size: 14px;
+    padding-left: 40px;
+}
+
+.search_chat div input::placeholder
+{
+    color: rgb(22, 3, 3);
+}
+
+.search_chat div ion-icon
+{
+    position: absolute;
+    left: 30px;
+    top: 14px;
+    font-size: 1.2em;
+}
+
+.listadelchat
+{
+    position: relative;
+    height: calc(100% - 110px); /* 60+50=110 */
+    overflow-y: auto;
+}
+
+.listadelchat .block
+{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid rgba(13, 152, 184, 0.86);
+    cursor: pointer;
+}
+
+.listadelchat .block .imgbx
+{
+    position: relative;
+    min-width: 45px;
+    height: 45px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-right: auto;
+}
+
+.listadelchat .block .details
+{
+    position: relative;
+    width: 100%;
+
+}
+
+.listadelchat .block .details .listHead
+{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.listadelchat .block .details .listHead .time h4
+{
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #000;
+}
+
+.listadelchat .block .details .listHead .time
+{
+    font-size: 0.75em;
+    color: #aaa;
+}
+
+.message_p
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message_p p
+{
+    color: #aaa;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    font-size: 0.9em;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
 }
