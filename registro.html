@@ -9,29 +9,29 @@
 </head>
 <body>
     <div class="signup">
-        <form action="" class="formulario">
+        <form action="insert.php" class="formulario" method="POST">
           <h1 class="titulo">Sign up</h1>
 
           <div class="input_Contenedor">
-            <input type="text" class="input" placeholder="a">
+            <input type="text" class="input" name="email" placeholder="a" required>
             <label for="" class="label">Email</label>
           </div>
     
           <div class="input_Contenedor">
-            <input type="text" class="input" placeholder="a">
+            <input type="text" class="input" name="name" placeholder="a" required>
             <label for="" class="label">Nombre de usuario</label>
           </div>
     
           <div class="input_Contenedor">
-            <input type="text" class="input" placeholder="a">
+            <input type="password" class="input" name="passwd" placeholder="a" required>
             <label for="" class="label">Contraseña</label>
           </div>
     
           <div class="input_Contenedor">
-            <input type="text" class="input" placeholder="a">
+            <input type="password" class="input" name="passwd1" placeholder="a" required>
             <label for="" class="label">Confirma Contraseña</label>
           </div>
-          <a type="submit" class="login" href="index.html">Iniciar Sesion</a>
+          <a type="submit" class="login" href="login.html">Iniciar Sesion</a>
           <input type="submit" class="submit" value="Sign up">
         </form>
       </div>
