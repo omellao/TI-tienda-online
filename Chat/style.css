@@ -8,6 +8,12 @@ html{
     font-size: 62.5%;
 }
 
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .FUSR {
     height: 60px;
     width: 60px;
@@ -15,7 +21,7 @@ html{
 .table{
     border: 3px solid black;
     justify-content: space-evenly;
-    width: 650px;
+    width: 400px;
 }
 
 .descripcion{
@@ -28,4 +34,9 @@ html{
 }
 .Des p{
     font-size: 1.3rem;
+}
+
+#chatbox {
+    width: 400px;
+    height: 500px;
 }
