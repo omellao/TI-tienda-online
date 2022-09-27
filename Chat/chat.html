@@ -1,62 +1,100 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
     <head>
         <title>Sala de chat</title>
         <meta charset="UTF-8"/>
         <meta name="description" content="Chat de GOUS" />
-        <meta name="viewport" content="width = devuice-widht,initial-scale=1.0" />
+        <meta name="viewport" content="width = device-width,initial-scale=1.0" />
         <meta name="report" content="index, follow" />
-        <link type="text/css" href="style.css" rel="stylesheet">
+        <link type="text/css" href="./style-chat.css" rel="stylesheet">
         <link rel="icon" href="...">
     </head>
 
     <body>
-        <script>
-            function MuestraDatos(){
-
-            }
-        </script>
         <table class="table">
             <tr>
-                <td><img class="FUSR" src="/Imagenes/Usuario.png" alt="Foto de Usuario"</td>
+                <td><img class="FUSR" src="Imagenes/Usuario.png" alt="Foto de Usuario"></td>
                 <td class="descripcion">
                     <ul class="Des">
-                        <li><a href="Perfil">(Nombre de Usuario)</a></li>
-                        <p>(Estudiante o Docente)</p>
+                        <li><a href="Perfil">Pepe</a></li>
+                        <p>Estudiante</p>
                     </ul>
                 </td>
             </tr>
         </table>
         <div id="chatbox">
             <div class="message destinatario">
-                <p>esto es un mensaje enviado por el destinatario 1</p>
+                <img src="Imagenes/Usuario.png" width="32" height="32">
+                <div class="content-msg">
+                    <b>Pepe </b><i>11:00 pm</i><br>
+                    <p>esto es un mensaje enviado por el destinatario 1</p>
+                </div>
             </div>
             <div class="message mensajero">
-                <p>esto es un mensaje enviado por el mensajero 1</p>
+                <img src="Imagenes/Usuario.png" width="32" height="32">
+                <div class="content-msg">
+                    <b>Juan </b><i>11:00 pm</i><br>
+                    <p>
+                        esto es un mensaje enviado por el mensajero 1
+                        fdsjhaklfdsah fdsaifdhsauifsdah fdsahfusiad ofh sans-serif 
+                        fiashfus iaofhsau ihfdsuai ofhsuaif hdsuaiofhd saufh
+                        fh uiosahf usaiofh sduiaofhsa uiofshuf iosahfus align-items
+                    </p>
+                </div>
             </div>
             <div class="message destinatario">
-                <p>esto es un mensaje enviado por el destinatario 2</p>
+                <img src="Imagenes/Usuario.png" width="32" height="32">
+                <div class="content-msg">
+                    <b>Pepe </b><i>11:00 pm</i><br>
+                    <p>
+                        esto es un mensaje enviado por el destinatario 2
+                    </p>
+                </div>
             </div>
             <div class="message mensajero">
-                <p>esto es un mensaje enviado por el mensajero 2</p>
+                <img src="Imagenes/Usuario.png" width="32" height="32">
+                <div class="content-msg">
+                    <b>Juan </b><i>11:00 pm</i><br>
+                    <p>
+                        esto es un mensaje enviado por el mensajero 2
+                    </p>
+                </div>
             </div>
             <div class="message destinatario">
-                <p>esto es un mensaje enviado por el destinatario 3</p>
+                <img src="Imagenes/Usuario.png" width="32" height="32">
+                <div>
+                    <b>Pepe </b><i>11:00 pm</i><br>
+                    <p>
+                        esto es un mensaje enviado por el destinatario 3
+                    </p>
+                </div>
             </div>
             <div class="message mensajero">
-                <p>esto es un mensaje enviado por el mensajero 3</p>
+                <img src="Imagenes/Usuario.png" width="32" height="32">
+                <div class="content-msg">
+                    <b>Juan </b><i>11:00 pm</i><br>
+                    <p>esto es un mensaje enviado por el mensajero 3</p>
+                </div>
             </div>
             <div class="message destinatario">
-                <p>esto es un mensaje enviado por el destinatario 4</p>
+                <img src="Imagenes/Usuario.png" width="32" height="32">
+                <div class="content-msg">
+                    <b>Pepe </b><i>11:00 pm</i><br>
+                    <p>esto es un mensaje enviado por el destinatario 4</p>
+                </div>
             </div>
             <div class="message mensajero">
-                <p>esto es un mensaje enviado por el mensajero 4</p>
+                <img src="Imagenes/Usuario.png" width="32" height="32">
+                <div class="content-msg">
+                    <b>Juan </b><i>11:00 pm</i><br>
+                    <p>esto es un mensaje enviado por el mensajero 4</p>
+                </div>
             </div>
         </div>
         <div>
             <form action="#" method="POST">
-                <input type="text" name="mensaje" id="msj" placeholder="Escribe un mensaje...">
-                <input type="submit" name="enviar" value="Enviar">
+                <input type="text" name="message" id="input-msj" placeholder="Escribe un mensaje...">
+                <button name="send"> > </button>
             </form>
         </div>
     </body>
