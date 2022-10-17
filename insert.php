@@ -8,6 +8,7 @@ $newUser = array(
     "passwd" => password_hash($_POST['passwd'], PASSWORD_DEFAULT)
 );
 
+
 if ($_POST['passwd1'] === $_POST['passwd'] && 
     $_POST['name'] != null && 
     $_POST['email'] != null) {
