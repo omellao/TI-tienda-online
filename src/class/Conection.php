@@ -1,22 +1,32 @@
-<?php
+ <?php
 
-require_once "/home/oscar/public_html/vendor/autoload.php";
+include_once (dirname(__FILE__)). '/../vendor/autoload.php';
 
 class Conection {
     public function conect() {
         try {
+            $db = "proyect";
             $host = "127.0.0.1";
-            $user = "admin";
             $pwd = "123455";
-            $dataBase = "proyect";
+            $user = "admin";
             $port = "27017";
 
-            $client = new MongoDB\Client("mongodb://".$user.":".$pwd."@".$host.":".$port."/".$dataBase);
-            return $client->selectDatabase($dataBase);
+            $client = new MongoDB\Client(
+                "mongodb://".$user.":".
+                $pwd."@".$host.":".
+                $port."/".$db);
+            return $client->selectDatabase($db);
+            /* return $client; */
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
     }
 }
+
+/* $db = new Conection(); */
+
+/* $wea = $db->conect(); */
+
+/* var_dump($wea); */
 
 ?> 
