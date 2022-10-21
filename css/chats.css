@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+}
+/* CONTENEDOR CHAT */
+.chat {
+}
+
+/* CONTENEDOR MENSAJES */
+.contenedor-mensajes {
+    background-color: #13293d;
+}
+/* MENSAJES */
+.mensaje {
+    padding: 5px;
+    margin: 4px;
+
+    color: white;
+    /* border-style: solid; */
+    /* border-radius: 5px; */
+}
+
+.mensaje-user-1 {
+    text-align: right;
+    background-color: #3e92cc;
+}
+
+.mensaje-user-2 {
+    background-color: #2a628f;
+}
