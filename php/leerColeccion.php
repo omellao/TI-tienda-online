@@ -6,6 +6,7 @@
         public function mostrarDatos() {
             try {
                 $conexion = parent::conectar();
+                // peronas es la coleccion
                 $coleccion = $conexion->personas;
                 $datos = $coleccion->find();
                 return $datos;

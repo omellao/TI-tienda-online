@@ -19,17 +19,16 @@
                         name="formulario"
                         method="post"
                         action="php/agregarMensaje.php">
-                        <textarea
-                            name="mensaje"
-                            cols="30"
-                            rows="10"
-                            class="texto"></textarea>
+                        <input type="text" name="mensaje" class="texto" />
                         <input type="submit" value="Enviar" />
                     </form>
                 </div>
             </div>
         </div>
-        <script src="js/scripts.js"></script>
-        <script src="js/pruebas.js"></script>
+
+        <button id="demo" onclick="activarChat()">Activar</button>
+        <button id="demo" onclick="desactivarChat()">Desactivar</button>
+        <script src="js/mostrar_mensajes.js"></script>
+        <!-- <script src="js/prueba.js"></script> -->
     </body>
 </html>
