@@ -19,8 +19,8 @@ $newUser = array(
     "salt" => "",
     "avatar" => "../views/img/Usuario.png",
     "lastchat" => "",
-    "priv_key" => "",
-    "pub_key" => ""
+    "priv_key" => $_POST['priv_key'],
+    "pub_key" => $_POST['pub_key']
 );
 
 $response = array();

@@ -23,10 +23,4 @@ class Conection {
     }
 }
 
-/* $db = new Conection(); */
-
-/* $wea = $db->conect(); */
-
-/* var_dump($wea); */
-
 ?> 
