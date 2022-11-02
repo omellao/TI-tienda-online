@@ -6,15 +6,14 @@ $collection = $db->users;
 
 if($_POST){
 
-  $uname = $_POST['name'];
-  $pwd = $_POST['pass'];
+    $uname = $_POST['name'];
+    $pwd = $_POST['pass'];
 
-  $cursor = $collection->find(array('name' => $uname, 'pass' => password_hash($pwd) ));
+    $cursor = $collection->find(array('name' => $uname, 'pass' => password_hash($pwd) ));
 
-  foreach ($cursor as $doc){
+    foreach ($cursor as $doc){
       echo $doc["firstName"];
-  }
-
+    }
 }
 
 $newUser = array(
@@ -22,6 +21,7 @@ $newUser = array(
     "passwd" => $_POST['pass'],
     "salt" => "",
 );
+
 $response = array();
 
 if(isset($_POST['login'])){
