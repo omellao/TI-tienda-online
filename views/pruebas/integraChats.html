@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chats</title>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="css/chats.css" />
+    </head>
+    <body>
+        <div class="contenedor-chats">
+            <div class="chats"> </div>
+            <div class="chat">
+                <div class="contenedor-mensajes" id="respuesta"></div>
+                <div class="barra-enviar">
+                    <form
+                        name="formulario"
+                        method="post"
+                        action="php/agregarMensaje.php">
+                        <input type="text" name="mensaje" class="texto" />
+                        <input type="submit" value="Enviar" />
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <button id="demo" onclick="activarChat()">Activar</button>
+        <button id="demo" onclick="desactivarChat()">Desactivar</button>
+
+        <!-- crear chat nuevo o nuevo documento -->
+        <form action="php/crear_chat.php" method="post">
+            <input type="text" name="nombre_chat" id="" />
+            <input type="submit" value="enviar" />
+        </form>
+
+        <script src="js/mostrar_mensajes.js"></script>
+        <!-- <script src="js/prueba.js"></script> -->
+    </body>
+</html>
