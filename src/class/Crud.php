@@ -47,8 +47,35 @@ class Crud extends Conection {
             return $th->getMessage();
         }
     }
-}
 
+    public function deleteUser($data) {
+        try {
+            $conexion = parent::conect();
+            $coleccion = $conexion->users;
+            $result = $coleccion->deleteOne(
+                array(
+                    "user"=>$data
+                )
+            );
+            return $result;
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
+    }
+
+    public function actualizarName($data, $data2) {
+        try {
+            $conexion = parent::conect();
+            $coleccion = $conexion->users;
+            $result = $coleccion->updateOne(
+                ['_id'=> new MongoDB\BSON\ObjectId($data)],['$set'=>$data2]
+            );
+            return $result;
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
+    }
+}
 
 ?>
 
