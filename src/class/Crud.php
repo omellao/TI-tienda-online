@@ -57,34 +57,8 @@ class Crud extends Conection {
             return $th->getMessage();
         }
     }
-
-    /* public function actualizarName($data, $data2) { */
-    /*     try { */
-    /*         $conexion = parent::conect(); */
-    /*         $coleccion = $conexion->selectCollection("users"); */
-    /*         $result = $coleccion->updateOne( */
-    /*             ['_id'=> new MongoDB\BSON\ObjectId($data)],['$set'=>$data2] */
-    /*         ); */
-    /*         return $result; */
-    /*     } catch (\Throwable $th) { */
-    /*         return $th->getMessage(); */
-    /*     } */
-    /* } */
 }
 
-
-$client = new Crud();
-$db = $client->conect();
-
-$result = $client->deleteUser($db, "admin");
-
-var_dump($result);
-
-$data = $client->readData($db);
-
-foreach ($data as $wea) {
-    var_dump($wea);
-}
 
 ?>
 
