@@ -5,22 +5,24 @@ include_once (dirname(__FILE__)). '/../vendor/autoload.php';
 class Conection {
     public function conect() {
         try {
-            $db = "proyect";
-            $host = "127.0.0.1";
-            $pwd = "123455";
-            $user = "admin";
-            $port = "27017";
+            include_once "config.php";
 
             $client = new MongoDB\Client(
-                "mongodb://".$user.":".
-                $pwd."@".$host.":".
-                $port."/".$db);
+                "mongodb://$user:$pwd@$host/$db?retryWrites=true&w=majority"
+            );
             return $client->selectDatabase($db);
-            /* return $client; */
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
     }
+
+    /* public function disconect($db) { */
+    /*     $db->close(); */
+    /* } */
 }
+
+/* $wea = new Conection(); */
+
+/* var_dump($wea); */
 
 ?> 

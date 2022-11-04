@@ -3,20 +3,18 @@
 include_once (dirname(__FILE__)).'/Conection.php';
 
 class Crud extends Conection {
-    public function getCollectionUsers() {
+    public function getCollectionUsers($db) {
         try {
-            $conection = parent::conect();
-            $collection = $conection->users;
+            $collection = $db->selectCollection("users");
             return $collection;
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
     }
 
-    public function readData() {
+    public function readData($db) {
         try {
-            $conection = parent::conect();
-            $collection = $conection->users;
+            $collection = $db->selectCollection("users");
             $data = $collection->find();
             return $data;
 
@@ -25,10 +23,9 @@ class Crud extends Conection {
         }
     }
 
-    public function readOneData(Array $filter) {
+    public function readOneData($db, Array $filter) {
         try {
-            $conection = parent::conect();
-            $collection = $conection->users;
+            $collection = $db->selectCollection("users");
             $data = $collection->findOne($filter);
             return $data;
 
@@ -37,10 +34,9 @@ class Crud extends Conection {
         }
     }
 
-    public function insertData(Array $data) {
+    public function insertData($db, Array $data) {
         try {
-            $conection = parent::conect();
-            $collection = $conection->users;
+            $collection = $db->selectCollection("users");
             $result = $collection->insertOne($data);
             return $result;
         } catch (\Throwable $th) {
@@ -48,13 +44,12 @@ class Crud extends Conection {
         }
     }
 
-    public function deleteUser($data) {
+    public function deleteUser($db, $data) {
         try {
-            $conexion = parent::conect();
-            $coleccion = $conexion->users;
+            $coleccion = $db->selectCollection("users");
             $result = $coleccion->deleteOne(
                 array(
-                    "user"=>$data
+                    "name"=>$data
                 )
             );
             return $result;
@@ -63,18 +58,32 @@ class Crud extends Conection {
         }
     }
 
-    public function actualizarName($data, $data2) {
-        try {
-            $conexion = parent::conect();
-            $coleccion = $conexion->users;
-            $result = $coleccion->updateOne(
-                ['_id'=> new MongoDB\BSON\ObjectId($data)],['$set'=>$data2]
-            );
-            return $result;
-        } catch (\Throwable $th) {
-            return $th->getMessage();
-        }
-    }
+    /* public function actualizarName($data, $data2) { */
+    /*     try { */
+    /*         $conexion = parent::conect(); */
+    /*         $coleccion = $conexion->selectCollection("users"); */
+    /*         $result = $coleccion->updateOne( */
+    /*             ['_id'=> new MongoDB\BSON\ObjectId($data)],['$set'=>$data2] */
+    /*         ); */
+    /*         return $result; */
+    /*     } catch (\Throwable $th) { */
+    /*         return $th->getMessage(); */
+    /*     } */
+    /* } */
+}
+
+
+$client = new Crud();
+$db = $client->conect();
+
+$result = $client->deleteUser($db, "admin");
+
+var_dump($result);
+
+$data = $client->readData($db);
+
+foreach ($data as $wea) {
+    var_dump($wea);
 }
 
 ?>
