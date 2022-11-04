@@ -1,0 +1,23 @@
+/* CONTENEDOR CHAT */
+
+/* CONTENEDOR MENSAJES */
+/* MENSAJES */
+.mensaje {
+    /* position para que se vea enfrente */
+    position: relative;
+    padding: 5px;
+    margin: 4px;
+
+    color: white;
+    /* border-style: solid; */
+    /* border-radius: 5px; */
+}
+
+.mensaje-user-1 {
+    text-align: right;
+    background-color: #3e92cc;
+}
+
+.mensaje-user-2 {
+    background-color: #2a628f;
+}

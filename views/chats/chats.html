@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" href="../../css/chats.css" />
+        <link rel="stylesheet" href="../../css/chat.css" />
+        <!-- <link rel="stylesheet" href="css/menu.css" /> -->
+
+        <!-- <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" /> -->
+    </head>
+    <body>
+        <!-- CUADRO GENERAL -->
+        <div class="cuadro_central">
+            <!-- LADO IZQUIERDO -->
+            <div class="ladoizquierdo">
+                <!-- HEADER -->
+                <div class="header">
+                    <!-- IMAGEN USER -->
+                    <div class="perfilimg">
+                        <img src="../../img/Photo_perfil.png" class="cover" />
+                    </div>
+                    <!-- BOTONES -->
+                    <ul class="nav_icons">
+                        <li>
+                            <ion-icon name="scan-circle-outline"></ion-icon>
+                        </li>
+                        <li> <ion-icon name="chatbox"></ion-icon></li>
+                        <li>
+                            <ion-icon name="scan-circle-outline"></ion-icon>
+                        </li>
+                    </ul>
+                </div>
+                <!-- BUSCADOR -->
+                <div class="search_chat">
+                    <div>
+                        <input type="text" placeholder="Busca..." />
+                        <ion-icon name="search-outline"></ion-icon>
+                    </div>
+                </div>
+                <!-- CONTACTO ULTIMO MENSAJE -->
+                <div class="listadelchat">
+                    <div class="block unread" onclick="verChat()">
+                        <div class="imgbx">
+                            <img
+                                src="../../img/Photo_perfil.png"
+                                class="cover" />
+                        </div>
+                        <div class="details">
+                            <div class="listHead">
+                                <h4>Oscar</h4>
+                                <p class="time">12:06</p>
+                            </div>
+                            <div class="message_p">
+                                <p>tu avance??</p>
+                                <b>6</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ladoderecho">
+                <div class="contenedor-mensajes" id="respuesta"></div>
+            </div>
+        </div>
+
+        <!-- DISEÑOS BOTONES -->
+        <script
+            type="module"
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script
+            nomodule
+            src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <script src="../../js/mostrar_mensajes.js"></script>
+    </body>
+</html>
