@@ -16,11 +16,11 @@
         }
     }
 
-    $user_1 = $_POST['usuario1'];
-    $user_2 = $_POST['usuario2'];
+    // $user_1 = $_POST['usuario1'];
+    // $user_2 = $_POST['usuario2'];
 
-    // $user_1 = "Cochones";
-    // $user_2 = "Ozk";
+    $user_1 = "Cochones";
+    $user_2 = "Ozk";
 
     $objeto = new Crud();
     $datoss = $objeto->mostrarChat($user_1,$user_2);

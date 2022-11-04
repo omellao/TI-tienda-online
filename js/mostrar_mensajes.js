@@ -1,7 +1,10 @@
 async function getText(file) {
-    let myObject = await fetch(file);
-    let myText = await myObject.text();
-    let obj = await JSON.parse(myText);
+    const myObject = await fetch(file, {
+        method: "POST",
+    });
+    console.log(myObject);
+
+    const obj = await myObject.json();
     console.log(obj);
 
     // // recorre todos los mensajes y los agrega al html
@@ -27,7 +30,7 @@ async function getText(file) {
 //     semaforo = setInterval(verChat, 1000);
 // }
 function verChat() {
-    getText("leerColeccion.php");
+    getText("../../src/leerColeccion.php");
 }
 // function desactivarChat() {
 //     clearInterval(semaforo);

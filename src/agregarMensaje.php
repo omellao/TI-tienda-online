@@ -16,9 +16,7 @@
 
     // $user_1 = $_POST['usuario1'];
     // $user_2 = $_POST['usuario2'];
-
-    $user_1 = "Cochones";
-    $user_2 = "Ozk";
+    $id = $_POST['id_chat'];
 
     $mensaje = $_POST['mensaje'];
     // echo $mensaje;
