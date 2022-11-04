@@ -1,27 +1,9 @@
 <?php   
     
-    require_once "conexion.php";
+    require_once "class/Crud.php";
 
-    class Crud extends Conexion{
-        public function mostrarChat($Us1, $Us2) {
-            try {
-                $conexion = parent::conectar();
-                // peronas es la coleccion
-                $coleccion = $conexion->mensajes;
-                $datos = $coleccion->find(array('emisor'=>$Us1,'receptor'=>$Us2));
-                return $datos;
-            } catch (\Throwable $th) {
-                return $th->getMenssage();
-            }
-        }
-    }
-
-    // $user_1 = $_POST['usuario1'];
-    // $user_2 = $_POST['usuario2'];
-
-    $user_1 = "Cochones";
-    $user_2 = "Ozk";
-
+    $ID = $_POST[''];
+ 
     $objeto = new Crud();
     $datoss = $objeto->mostrarChat($user_1,$user_2);
 

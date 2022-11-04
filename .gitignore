@@ -1,2 +1,2 @@
 src/vendor/*
-vendor/*
+src/class/config.php

@@ -1,0 +1,43 @@
+#contac {
+    display: none;
+}
+
+.contenedor-contactos {
+    /* display: none; */
+
+    /* justify-content: left; */
+    position: absolute;
+    background-color: rgb(10, 9, 28);
+    width: 400px;
+    height: 100vh;
+    /* para dejar a la izquierda */
+    top: 0;
+    left: 0;
+}
+
+.lista-contactos {
+    /* sacar margenes feos */
+    margin: 0;
+    padding: 0;
+    /* color: white; */
+    list-style: none;
+}
+
+.un-contacto {
+    background-color: rgb(213, 26, 26);
+    display: flex;
+    /* justify-content: center; */
+    text-align: center;
+
+    padding: 4px;
+}
+.un-contacto img {
+    width: 40px;
+}
+
+.un-contacto p {
+    color: white;
+    font-size: 20px;
+    align-self: center;
+    padding-left: 15px;
+}
