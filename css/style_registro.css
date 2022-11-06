@@ -3,6 +3,7 @@ body {
     margin: 0;
     padding: 0;
     background-color: #13293d;
+<<<<<<< HEAD
     font-family: "lato", sans-serif;
 }
 a {
@@ -26,6 +27,26 @@ a {
     list-style: none;
     padding: 0;
     margin: 0 0 50px 5px;
+=======
+    font-family: Arial, Helvetica, sans-serif;
+}
+a{
+    position:relative;
+    text-align: center;
+	top:62px;
+	left:10px;
+}
+.login{
+    display: block;
+    padding: 15px 30px;
+    border: none;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 17px;
+    top: 52px;
+    left: 200px;
+>>>>>>> pablo
 }
 .signup{
     display: flex;
@@ -61,6 +82,7 @@ a {
     border-radius: 7px;
     font-size: 16px;
     padding: 0 20px;
+<<<<<<< HEAD
     outline: none;
     background: none;
     z-index: 1;
@@ -79,6 +101,19 @@ a {
     font-size: 15px;
     transition: 0.5s;
     z-index: 0;
+=======
+    z-index: 1;
+  }
+
+.label{
+    position: absolute;
+    top: -15px;
+    left: 0px;
+    background-color: white;
+    color: #2a628f;
+    font-size: 15px;
+    transition: 0.5s;
+>>>>>>> pablo
   }
 .submit{
     display: block;
@@ -89,6 +124,7 @@ a {
     color: white;
     border-radius: 6px;
     cursor: pointer;
+<<<<<<< HEAD
     font-size: 16px;
     margin-top: 30px;
   }
@@ -96,6 +132,15 @@ a {
 .input:focus{
     border: 2px solid #2a628f;
   }
+=======
+    font-size: 17px;
+    margin-top: 30px;
+}
+
+.input:focus{
+    border: 2px solid #2a628f;
+}
+>>>>>>> pablo
 .input:focus + .label {
     top: -7px;
     left: 3px;
@@ -103,4 +148,35 @@ a {
     font-size: 14px;
     font-weight: 600;
     color: #2a628f;
+<<<<<<< HEAD
   }
+=======
+  }
+input[type="submit"] {
+    width: 45%;
+    background-color: #3e92cc;
+    color: white;
+    padding: 12px 19px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background-color: #2a628f;
+}
+
+a[type="submit"] {
+    width: 45%;
+    background-color: #3e92cc;
+    color: white;
+    padding: 12px 19px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+a[type="submit"]:hover{
+    background-color: #2a628f;
+}
+>>>>>>> pablo
