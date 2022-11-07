@@ -3,15 +3,6 @@
 include_once (dirname(__FILE__)).'/Conection.php';
 
 class Crud extends Conection {
-    public function getCollectionUsers($db) {
-        try {
-            $collection = $db->selectCollection("users");
-            return $collection;
-        } catch (\Throwable $th) {
-            return $th->getMessage();
-        }
-    }
-
     public function readData($db) {
         try {
             $collection = $db->selectCollection("users");

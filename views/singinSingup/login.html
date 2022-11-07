@@ -8,15 +8,15 @@
   <body>
     <!-- DIV Contenedor del form -->
     <div class="login">
-        <form action="../../src/login.php" class="formulario">
+        <form id="form-login" action="" class="formulario">
           <h1 class="titulo">Login</h1>
           <div class="input_Contenedor">
-            <input type="text" class="input" placeholder="">
-            <label for="" class="label">Nombre de usuario</label>
+            <input type="text" class="input" placeholder="" name="useroremail" required>
+            <label for="" class="label">usuario o email</label>
           </div>
     
           <div class="input_Contenedor">
-            <input type="password" class="input" placeholder="">
+            <input type="password" class="input" placeholder="" name="pwd" required>
             <label class="label">Contraseña</label>
           </div>
         <input type="submit" class="submit" value="Iniciar Sesión"/>
@@ -24,5 +24,6 @@
         <a href="registro.html">Crear una nueva cuenta</a>
       </form>
     </div>
+    <script src="../../js/login.js"></script>
   </body>
 </html>

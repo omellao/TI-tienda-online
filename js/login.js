@@ -1,4 +1,4 @@
-const form = document.getElementById("login");
+const form = document.getElementById("form-login");
 
 const sendData = async dataUser => {
     const response = await fetch('../../src/login.php', {
@@ -9,6 +9,8 @@ const sendData = async dataUser => {
     return response.json();
 };
 
+
+
 form.addEventListener("submit", async event => {
     event.preventDefault();
 
@@ -18,13 +20,3 @@ form.addEventListener("submit", async event => {
     console.log(status);
 });
 
-function validar() {
-    let username = document.getElementById("name").value;
-    let password = document.getElementById("pass").value;
-    if (username == "Formget" && password == "formget#123") {
-        alert("Logueado exitosamente");
-        window.location = "index.html"; // Redireccionado a otra pagina
-        return false;
-    }
-    else {}
-}

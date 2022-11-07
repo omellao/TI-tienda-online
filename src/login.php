@@ -1,67 +1,56 @@
-<<<<<<< HEAD
 <?php
 
-include_once (dirname(__FILE__)).'/class/Crud.php';
+include_once 'vendor/autoload.php';
+include_once "class/Crud.php";
 
-session_start();
-
-
-?>
-
-=======
-<?php
-require '../vendor/autoload.php';
-require_once "Conexion.php";
-
-$collection = $db->users;
-
-if($_POST){
-
-    $uname = $_POST['name'];
-    $pwd = $_POST['pass'];
-
-    $cursor = $collection->find(array('name' => $uname, 'pass' => password_hash($pwd) ));
-
-    foreach ($cursor as $doc){
-      echo $doc["firstName"];
-    }
-}
-
-$newUser = array(
-    "name" => $_POST['name'],
-    "passwd" => $_POST['pass'],
-    "salt" => "",
-);
+$client = new Crud();
+$db = $client->conect();
 
 $response = array();
 
-if(isset($_POST['login'])){
-		
-    $postedUsername = $_POST['name']; 
-    $postedPassword = $_POST['pass']; 
-    $db = $collection;
-    $userDbFind = $db->find(array('name' => $postedUsername)); 
-        
-        
-        foreach($userDbFind as $userFind) {
-            $Username = $userFind['name'];
-            $Password = $userFind['pass'];
-        }
+if (!$_POST['useroremail'] === "" || !$_POST['pwd'] === "") {
+    $response['status'] = 1;
+    exit(json_encode($response));
+}
 
-        if($postedUsername == $Username && $postedPassword == $Password){ 
-            $_SESSION['authentication'] = 1;
-            ?>
-            
-            <script type="text/javascript">
-            window.location = "index.html"
-            </script> <?php
-            
-        }else{
-            
-            $wrongflag = 1;
-        }
-        
-    }else{}
 
+$postedUsernameEmail = $_POST['useroremail'];
+$postedPassword = $_POST['pwd'];
+
+$query = array(
+    "\$or" => array(
+        array("name" => $postedUsernameEmail),
+        array("email" => $postedUsernameEmail)
+    )
+);
+
+$userDb = $client->readOneData($db, $query); 
+
+if (!$userDb) {
+    $response['status'] = 2;
+    exit(json_encode($response));
+}
+
+$pwd = hash("sha512", "{$_POST['pwd']}.{$userDb['salt']}");
+
+if (!$pwd == $userDb['passwd']) {
+    $response['status'] = 3;
+    exit(json_encode($response));
+}
+
+session_start();
+
+$response['status'] = 0;
+
+$_SESSION['user'] = hash("sha512", "{$userDb['name']}:$pwd");
+$_SESSION['priv_key'] = $userDb['priv_key'];
+$_SESSION['pub_key'] = $userDb['pub_key'];
+
+$response['loggin'] = array(
+    "user" => $_SESSION['user'],
+    "priv_key" => $_SESSION['priv_key'],
+    "pub_key" => $_SESSION['pub_key'],
+);
+
+exit(json_encode($response));
 ?>
->>>>>>> pablo
