@@ -1,0 +1,205 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+:root{
+    --widthElement:30%;
+}
+
+body {
+    background-image: url(https://dbdzm869oupei.cloudfront.net/img/vinylrugs/preview/55274.png);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.header{
+    position: relative;
+    width: var(--widthElement);
+    height: 60px;
+    background: #ededed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+}
+.FUSR {
+    height: 60px;
+    width: 60px;
+}
+
+.table{
+    border: 3px solid rgb(0, 0, 0);
+    justify-content: space-evenly;
+    width: 600px;
+    background-color: #42A5F5;
+}
+
+.descripcion{
+    font-size: 1.8rem;
+    margin: 0 auto;
+}
+
+.Des li{
+    list-style-type: none;
+}
+.Des p{
+    font-size: 1.3rem;
+}
+
+#container{
+    width: var(--widthElement);
+    height: 700px;
+    line-height: 1em;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    background-image: url("../img/fonos.png");
+    background-size: cover;
+    padding: 0 15px;
+}
+
+.chatbox{
+    position: relative;
+    width: 100%;
+    height:  calc(100% - 120px);
+    padding: 50px;
+    overflow-y: auto;
+}
+
+.message {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.message p
+{
+    position: relative;
+    right: 0;
+    text-align: right;
+    max-width: 65%;
+    padding: 12px;
+    background: #42A5F5 ;
+    border-radius: 10px;
+    font-size: 0.9em;
+}
+.message p::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -12px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #42A5F5 0%, #42A5F5 50%, transparent 50%, transparent);
+}
+.message p span{
+    display: block;
+    margin-top: 5px;
+    font-size: 0.85em;
+    opacity: 0.5;
+}
+.menssage_enviado{
+    justify-content: flex-end;
+}
+.menssage_recivido{
+    justify-content: flex-start;
+}
+
+.menssage_recivido p{
+    background: #fff;
+    text-align: left;
+}
+.message.menssage_recivido p::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -12px;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(225deg, #fff 0%, #fff 50%, transparent 50%, transparent);
+}
+
+a{
+    text-decoration: none;
+}
+.imgText{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 15px;
+}
+.imgText h4{
+    font-weight: 500;
+    line-height: 1.2em;
+    margin-left: 15px;
+}
+
+.userimg{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 2px solid transparent;
+}
+.cover{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.imgText h4 span{
+    font-size: 0.8em;
+    color: rgb(0, 255, 13);
+}
+
+.userimg:hover{
+    opacity: 0.9;
+    border: 2px solid #42A5F5;
+}
+
+.buscar {
+    position: absolute;
+    padding: 5px;
+    top: 80%;
+}
+
+.buscar input {
+    width: 110px;
+    height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: #222;
+    outline: none;
+    border: 1px solid rgb(0, 0, 0);
+    border-radius: 30px;
+    transition: all 0.6s ease;
+}
+
+.btn {
+    width: 55px;
+    height: 55px;
+    line-height: 65px;
+    top: 0;
+    right: 0;
+    position: absolute;
+    background: #42A5F5;
+    text-align: center;
+    color: white;
+    font-size: 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.buscar:hover input {
+    width: 550px;
+}
+
+.buscar input:focus {
+    width: 240px;
+}
