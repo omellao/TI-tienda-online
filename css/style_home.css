@@ -1,0 +1,173 @@
+body {
+    background: #13293d;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#container {
+    width: 100%;
+}
+
+/* header{
+    display: flex;
+    height: 80px;
+    background-color: #13293d;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+} */
+h1 {
+    font-style: italic;
+    font-size: medium;
+}
+
+
+.header {
+
+    /* display: flex; */
+    position: sticky;
+    top: 0;
+    flex-direction: column;
+
+}
+
+.footer {
+
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    height: 6rem;
+    padding: 1rem;
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    bottom: 0;
+    left: 0;
+    background: #13293d;
+    ;
+    background-image: linear-gradient(132.6deg, rgba(71, 139, 214, 1) 23.3%, rgba(37, 216, 211, 1) 84.7%);
+}
+
+.header-top {
+    width: 100%;
+    background-color: #4dcae9;
+    padding: 0;
+    overflow: visible;
+    height: auto;
+    transition: all .2s ease-in-out;
+}
+
+.nosub {
+    text-decoration: none;
+    color: black;
+}
+
+.p1 {
+    font-weight: 600;
+    padding-right: 10px;
+    padding-top: 5px;
+    text-align: center;
+    color: #eee;
+    font-size: 22px;
+}
+
+.p2 {
+    font-weight: 600;
+    margin-left: 50px;
+    padding-top: 5px;
+    text-align: left;
+    color: #eee;
+    font-size: 22px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.nav-menu {
+    display: flex;
+    justify-content: space-around;
+    height: 3rem;
+    align-items: center;
+}
+
+.nav-link {
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    font-weight: 800;
+    justify-content: left;
+}
+
+nav a:hover {
+    color: red;
+}
+
+.clearfix {
+    clear: both;
+}
+
+#Noti {
+    margin: auto;
+    margin-top: 27px;
+    float: left;
+    width: 80%;
+    background: #13293d;
+    color: #eee;
+}
+
+#Noti img {
+    width: 800px;
+    height: 400px;
+    margin-right: 10px;
+    margin-left: 50px;
+}
+
+ul li {
+    list-style: none;
+    margin: 10px;
+    display: inline-block;
+    margin-left: 50px;
+}
+
+li:hover {
+    color: red;
+}
+
+.article {
+    color: white;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+aside {
+    float: left;
+    width: 20%;
+    background: lightblue;
+    min-height: 500px;
+}
+
+/* footer{
+    background-color: lightblue;
+    color: black;
+    text-align: center;
+    height: 50px;
+    line-height: 50px;
+} */
