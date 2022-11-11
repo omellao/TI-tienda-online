@@ -43,14 +43,11 @@ session_start();
 $response['status'] = 0;
 
 $_SESSION['user'] = hash("sha512", "{$userDb['name']}:$pwd");
+$_SESSION['username'] = $userDb['name'];
 $_SESSION['priv_key'] = $userDb['priv_key'];
 $_SESSION['pub_key'] = $userDb['pub_key'];
 
-$response['loggin'] = array(
-    "user" => $_SESSION['user'],
-    "priv_key" => $_SESSION['priv_key'],
-    "pub_key" => $_SESSION['pub_key'],
-);
 
 exit(json_encode($response));
+
 ?>

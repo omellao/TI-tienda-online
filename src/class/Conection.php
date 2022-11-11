@@ -10,7 +10,7 @@ class Conection {
             $client = new MongoDB\Client(
                 "mongodb://$user:$pwd@$host/$db?retryWrites=true&w=majority"
             );
-            return $client->selectDatabase($db);
+            return $client->$db;
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
@@ -23,6 +23,7 @@ class Conection {
 
 /* $wea = new Conection(); */
 
-/* var_dump($wea); */
+/* $db = $wea->conect(); */
+/* var_dump($db); */
 
 ?> 

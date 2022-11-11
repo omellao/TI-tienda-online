@@ -35,20 +35,21 @@ if ($_POST['passwdverify'] ==! $_POST['passwd'] ||
 $client = new Crud();
 $db = $client->conect();
 
-$username = array("name" => $_POST['name']);
-$useremail = array("email" => $_POST['email']);
-$resultName = $client->readOneData($db, $username);
-$resultEmail = $client->readOneData($db, $useremail);
+$resultName = $client->readOneData($db, array("name" => $_POST['name']));
+$resultEmail = $client->readOneData($db, array("email" => $_POST['email']));
 
-if ($resultEmail || $resultName) {
+
+if ($resultEmail != NULL || $resultName != NULL) {
     $response['status'] = "el nombre o email ya estan registrados";
+    $response['result'] = array($resultName, $resultEmail);
     exit(json_encode($response));
 }
+
 
 $newUser['salt'] = genSalt();
 $newUser['passwd'] = hash("sha512", "{$_POST['passwd']}.{$newUser['salt']}");
 
-$result = $client->insertData($db, $newUser);
+$result = $db->selectCollection("users")->insertOne($newUser);
 
 $response['status'] = "todo bien, todo correcto, y yo que me alegro";
 exit(json_encode($response));

@@ -67,7 +67,6 @@ form.addEventListener("submit", async event => {
     userData.append("priv_key", keys.privateKey)
     userData.append("pub_key", keys.publicKey)
 
-    console.log(userData);
     const status = await sendData(userData);
 
     console.log(status);

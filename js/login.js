@@ -15,8 +15,11 @@ form.addEventListener("submit", async event => {
     event.preventDefault();
 
     const userData = new FormData(form);
-    const status = await sendData(userData);
+    const response = await sendData(userData);
 
-    console.log(status);
+    console.log(response);
+    if (response.status == 0) {
+        window.location.replace("../chats/chats.html");
+    }
 });
 

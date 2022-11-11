@@ -38,17 +38,27 @@ class Crud extends Conection {
     public function deleteUser($db, $data) {
         try {
             $coleccion = $db->selectCollection("users");
-            $result = $coleccion->deleteOne(
-                array(
-                    "name"=>$data
-                )
-            );
+            $result = $coleccion->deleteOne(array("name" => $data));
             return $result;
         } catch (\Throwable $th) {
             return $th->getMessage();
         }
     }
 }
+
+/* $client = new Crud(); */
+/* $db = $client->conect(); */
+
+/* $wea = $client->readOneData($db, array("name" => "Oscar")); */
+/* $wea1 = $client->readOneData($db, array("email" => "jfdsklfsdja")); */
+
+/* if ($wea != NULL || $wea1 != NULL) { */
+/*     var_dump($wea); */
+/*     exit(); */
+/* } */
+
+/* echo "holaj ksfjsdl"; */
+
 
 
 ?>
