@@ -1,15 +1,18 @@
 <?php   
-    require_once "class/Crud.php";
+    require_once "class_new/Crud.php";
     
-    $user_1 = "Colchones";
-    $user_2 = "Ozk";
+    $user_login = "Colchones";
+    $user2 = $_POST['user1'];
 
+    
+    // echo $user_2;
     $client = new Crud();
-    $db = $client->conect();
-    
     $fechaa = date('m-d-Y h:i:s a', time());
+    $datoNuevo = ["users" => [$user_login, $user2], "last_activity" => $fechaa];
+    $result = $client->crearChat($datoNuevo);
     
-    $datoNuevo = ["users" => [$user_1, $user_2], "last_activity" => $fechaa];
-    
-    $result = $client->insertData($db,$datoNuevo);
+    $response = array("status" => "todo bien");
+
+    exit(json_encode($response));
+   
 ?>

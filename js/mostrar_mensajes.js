@@ -1,17 +1,15 @@
-async function getText(file) {
-    const myObject = await fetch(file, {
+async function getText() {
+    const myObject = await fetch("../../src/read_mensajes.php", {
         method: "POST",
     });
-    // console.log(myObject);
     const obj = await myObject.json();
-    console.log(obj.mensajes);
 
     document.getElementById("respuesta").innerHTML = "";
     // recorre los mensajes y los agrega al html
-    for (let i = 1; i < obj.mensajes.length; i++) {
+    for (let i = 0; i < obj.mensajes.length; i++) {
         let node = document.createElement("div");
 
-        if (obj.mensajes[i].user == "usuario1") {
+        if (obj.mensajes[i].receptor == "Colchones") {
             node.className += "mensaje-user-1 mensaje";
             let textnode = document.createTextNode(obj.mensajes[i].mensaje);
             node.appendChild(textnode);
@@ -26,12 +24,12 @@ async function getText(file) {
     }
 }
 
-// function activarChat() {
-//     semaforo = setInterval(verChat, 1000);
-// }
-function verChat() {
-    getText("../../src/leerColeccion.php");
+function activarChat() {
+    semaforo = setInterval(verChat, 1000);
 }
-// function desactivarChat() {
-//     clearInterval(semaforo);
-// }
+function verChat() {
+    getText();
+}
+function desactivarChat() {
+    clearInterval(semaforo);
+}

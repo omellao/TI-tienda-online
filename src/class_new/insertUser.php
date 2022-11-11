@@ -1,10 +1,10 @@
 <?php    
-    require_once "class_new/Crud.php";
+    require_once "Crud.php";
     
     $newData = new Crud();
     $noseKago = $newData->insertData();
 
-    $resp = array();
+    $resp = array();    
 
     foreach ($noseKago as $item){
         $resp ["users"][]= $item;
