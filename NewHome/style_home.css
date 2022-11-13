@@ -214,3 +214,44 @@ footer{
     cursor: pointer;
     font-size: 18px;
 }
+.osc{
+    border: 3px solid white;
+    border-radius: 50%;
+    height: 100px;
+    width: 110px;
+}
+.col{
+    border: 3px solid white;
+    border-radius: 50%;
+    height: 100px;
+    width: 110px;
+}
+.pab{
+    border: 3px solid white;
+    border-radius: 50%;
+    height: 100px;
+    width: 110px;
+}
+.dan{
+    border: 3px solid white;
+    border-radius: 50%;
+    height: 100px;
+    width: 120px;
+}
+.INTE{
+    line-height: 30px;
+}
+.Integrantes1{
+    display: flex;
+    justify-content:space-evenly;
+    text-align: center;
+}
+.Integrantes2{
+    margin-top: 40px;
+    display: flex;
+    justify-content:space-evenly;
+    text-align: center;
+}
+li{
+    list-style: none;
+}
