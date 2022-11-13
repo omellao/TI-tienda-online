@@ -1,0 +1,20 @@
+Comando para extraer los datos de la base de atos mongodb
+a un archivo js
+
+se necesita la extencion mongoexport
+se verifica mongoexport --help
+
+Comando:
+mongoexport --collection events --db reporting --out events.json
+
+
+
+
+
+
+mongoexport --db base_de_datos_a_exportar --collection coleccion_a_exportar --authenticationDatabase admin -u usuario_exportacion -p Pa$$ --out /ruta/export/exportacion_simple.csv
+
+Este es un ejemplo de este tipo de exportación.
+
+mongoexport --db base_de_datos_a_exportar --collection coleccion_a_exportar --authenticationDatabase admin -u usuario_exportacion -p Pa$$ --type=csv --fieldFile
+ /ruta/export/fields.txt --out /ruta/export/exportacion_con_fieldFile.csv
