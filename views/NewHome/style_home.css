@@ -238,6 +238,12 @@ footer{
     height: 100px;
     width: 120px;
 }
+.nic{
+    border: 3px solid white;
+    border-radius: 50%;
+    height: 100px;
+    width: 120px;
+}
 .INTE{
     line-height: 30px;
 }
