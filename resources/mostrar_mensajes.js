@@ -1,37 +1,51 @@
-// este recibe todo el contenido con ajax
+async function getText() {
+    const myObject = await fetch("../../src/read_mensajes.php", {
+        method: "POST",
+    });
+    const obj = await myObject.json();
 
-var xhr = new XMLHttpRequest();
+    document.getElementById("respuesta").innerHTML = "";
+    // recorre los mensajes y los agrega al html
+    for (let i = 0; i < obj.mensajes.length; i++) {
+        let node = document.createElement("div");
 
-xhr.open("GET", "./php/leerColeccion.php");
-xhr.onload = function () {
-    if (xhr.status == 200) {
-        var json = JSON.parse(xhr.responseText);
-        // console.log(json.mensajes[2].user);
-        // console.log(json.mensajes.length);
-
-        // recorre todos los mensajes y los agrega al html
-        for (let i = 1; i < json.mensajes.length; i++) {
-            let node = document.createElement("div");
-
-            if (json.mensajes[i].user == "usuario1") {
-                node.className += "mensaje-user-1 mensaje";
-                let textnode = document.createTextNode(
-                    json.mensajes[i].mensaje
-                );
-                node.appendChild(textnode);
-            } else {
-                node.className += "mensaje-user-2 mensaje";
-                let textnode = document.createTextNode(
-                    json.mensajes[i].mensaje
-                );
-                node.appendChild(textnode);
-            }
-
-            document.getElementById("respuesta").appendChild(node);
-            // console.log(json.mensajes[i].user);
+        if (obj.mensajes[i].receptor == "Oscar") {
+            // node.className += "message menssage_enviado";
+            node.innerHTML = `
+            <div class="message menssage_enviado">
+                <p>
+                    ${obj.mensajes[i].mensaje}<br />
+                    <span>11:35</span>
+                </p>
+            </div>
+            `;
+            // let textnode = document.createTextNode(obj.mensajes[i].mensaje);
+            // node.appendChild(textnode);
+        } else {
+            // node.className += "message menssage_recivido";
+            // node.innerHTML = `<p>${obj.mensajes[i].mensaje}<br/><span>11:31</span></p>`;
+            node.innerHTML = `
+                <p>
+                    ${obj.mensajes[i].mensaje}<br />
+                    <span>11:35</span>
+                </p>
+            `;
+            // let textnode = document.createTextNode(obj.mensajes[i].mensaje);
+            // node.appendChild(textnode);
         }
-    } else {
-        console.log("ERROR: " + xhr.status);
+
+        document.getElementById("respuesta").appendChild(node);
+        // console.log(obj.mensajes[i].user);
     }
-};
-xhr.send();
+}
+
+function activarChat() {
+    semaforo = setInterval(verChat, 1000);
+    window.scroll(0, 1000);
+}
+function verChat() {
+    getText();
+}
+function desactivarChat() {
+    clearInterval(semaforo);
+}

@@ -6,7 +6,8 @@
     $mensaje = $_POST['mensaje'];
 
     // FECHA 
-    $fechaa = date('m-d-Y h:i:s a', time());
+    // $fechaa = date('m-d-Y h:i:s a', time());
+    $fechaa = date("H:i:s", time());
 
     $datoNuevo = ["id_chat" => $id,"emisor"=>$emisor,"mensaje" => "$mensaje", "date" => $fechaa];
     $newData = new Crud();

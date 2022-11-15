@@ -1,6 +1,9 @@
-document
-    .getElementById("crear-contacto")
-    .addEventListener("click", desactivarReceptores);
+// document
+//     .getElementById("crear-contacto")
+//     .addEventListener("click", desactivarReceptores);
+
+// VARIABLE SESION
+let user_s = "Colchones";
 
 async function getReceptores() {
     const myObject = await fetch("../../src/read_receptores.php", {
@@ -16,17 +19,22 @@ async function getReceptores() {
         let node = document.createElement("li");
         // node.className += "un-contacto";
 
+        var n = 0;
+        if (obj.chats[i].users[0] == user_s) {
+            n = 1;
+        } else {
+            n = 0;
+        }
+
         node.innerHTML =
-            `<div class="block unread" onclick="cambio('` +
-            obj.chats[i]._id.$oid +
-            `')">
+            `<div class="block unread" onclick="cambio('${obj.chats[i]._id.$oid}','${obj.chats[i].users[n]}')">
                         <div class="imgbx">
                             <img src="../img/Photo_perfil.png" class="cover" />
                         </div>
                         <div class="details">
                             <div class="listHead">
                                 <h4>` +
-            obj.chats[i].users[1] +
+            obj.chats[i].users[n] +
             `</h4>
                                 <p class="time">12:06</p>
                             </div>
@@ -37,7 +45,6 @@ async function getReceptores() {
                         </div>
                     </div>
                     `;
-
         // console.log(node);
         document.getElementById("listadelchat").appendChild(node);
         // console.log(obj.mensajes[i].user);

@@ -9,14 +9,6 @@
         <link rel="stylesheet" href="../../css/chats.css" />
         <link rel="stylesheet" href="../../css/chat.css" />
         <link rel="stylesheet" href="../../css/contactor.css" />
-
-        <!-- JS -->
-
-        <!-- <link rel="stylesheet" href="css/menu.css" /> -->
-
-        <!-- <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css" /> -->
     </head>
     <body>
         <!-- CUADRO GENERAL -->
@@ -34,9 +26,7 @@
                         <li id="boton-contacto">
                             <ion-icon name="chatbox"> </ion-icon>
                         </li>
-                        <li id="crear-contacto" onclick="activarChat()">
-                            <ion-icon name="scan-circle-outline"></ion-icon>
-                        </li>
+                        <li><ion-icon name="ellipsis-vertical"></ion-icon></li>
                     </ul>
                 </div>
                 <!-- BUSCADOR -->
@@ -48,23 +38,11 @@
                 </div>
                 <!-- CONTACTO ULTIMO MENSAJE -->
                 <div class="listadelchat" id="listadelchat">
-                    <div class="block unread" onclick="verChat()">
-                        <div class="imgbx">
-                            <img src="../img/Photo_perfil.png" class="cover" />
-                        </div>
-                        <div class="details">
-                            <div class="listHead">
-                                <h4>GOUS</h4>
-                                <p class="time">00:00</p>
-                            </div>
-                            <div class="message_p">
-                                <p>HOLA! BIENVENIDO</p>
-                                <b>1</b>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- LIANDING -->
+                    <p id="loanding">LOANDING...</p>
                     <!-- <div style="display: block"> -->
                 </div>
+                <!-- FORM NO OCUPACIONAL -->
                 <div style="display: none">
                     <form action="" method="post" id="formulario">
                         <input type="text" name="nombre" disabled />
@@ -79,11 +57,36 @@
                 </div>
             </div>
             <div class="ladoderecho">
-                <div class="contenedor-mensajes" id="respuesta"></div>
-                <div class="form-mensaje">
+                <div class="header-chat" id="nav-chat">
+                    <!-- <div class="imgText">
+                        <div class="userimg">
+                            <a href="perfil.html">
+                                <img src="../img/cara1.png" class="cover" />
+                            </a>
+                        </div>
+                        <h4 class="imgTexth4">
+                            Oscar <br />
+                            <span>En linea</span>
+                        </h4>
+                    </div> -->
+                </div>
+                <div class="cont-messages" id="cont-mensaje">
+                    <div class="contenedor-mensajes" id="respuesta">
+                        <!-- AQUI LLEGAN LOS MENSAJES -->
+                    </div>
+                </div>
+                <div class="buscar">
                     <form action="" method="post" id="formulario2">
-                        <input type="text" name="mensaje" />
-                        <input type="submit" value=">>" id="env_form" />
+                        <input
+                            type="text"
+                            name="mensaje"
+                            placeholder="Mensaje..."
+                            class="input-message" />
+                        <input
+                            type="submit"
+                            value="📤"
+                            id="env_form"
+                            class="btn" />
                     </form>
                 </div>
             </div>
@@ -92,7 +95,6 @@
         <div class="contenedor-contactos" id="contac">
             <ul class="lista-contactos"></ul>
         </div>
-
         <!-- DISEÑOS BOTONES -->
         <script
             type="module"
@@ -103,7 +105,6 @@
         <!-- JS  -->
         <script src="../../js/crear_contactos.js"></script>
         <script src="../../js/crear_mensajes.js"></script>
-        <script src="../../js/mostrar_mensajes.js"></script>
         <script src="../../js/mostrar_receptores.js"></script>
     </body>
 </html>

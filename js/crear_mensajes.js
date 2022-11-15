@@ -1,14 +1,17 @@
 // VARIABLES
 let id_chat = "";
+let recep = "";
 // VARIABLE SESION
 let user = "Colchones";
 
 // CAMBIO DE VARIABLE
-function cambio(x) {
+function cambio(x, b) {
     id_chat = x;
-    console.log(id_chat);
+    recep = b;
+    console.log(id_chat, b);
     // DE PASO ACTIVA LOS CHAT
     activarChat();
+
     // activarChat(id_chat);
     function activarChat() {
         semaforo = setInterval(verChat, 1000);
@@ -56,7 +59,7 @@ async function form(id) {
 
     // const respuesta = await response.text();
     const obj = await response.json();
-    console.log(obj);
+    // console.log(obj);
 
     document.getElementById("respuesta").innerHTML = "";
     // recorre los mensajes y los agrega al html
@@ -64,16 +67,42 @@ async function form(id) {
         let node = document.createElement("div");
 
         if (obj.mensajes[i].emisor == user) {
-            node.className += "mensaje-user-1 mensaje";
-            let textnode = document.createTextNode(obj.mensajes[i].mensaje);
-            node.appendChild(textnode);
+            node.className += "message menssage_enviado";
+
+            node.innerHTML = `
+                <p>
+                    ${obj.mensajes[i].mensaje}<br />
+                    <span>${obj.mensajes[i].date}</span>
+                </p>
+            `;
         } else {
-            node.className += "mensaje-user-2 mensaje";
-            let textnode = document.createTextNode(obj.mensajes[i].mensaje);
-            node.appendChild(textnode);
+            node.className += "message menssage_recibido";
+
+            node.innerHTML = `
+                <p>
+                    ${obj.mensajes[i].mensaje}<br />
+                    <span>${obj.mensajes[i].date}</span>
+                </p>
+                `;
         }
 
         document.getElementById("respuesta").appendChild(node);
         // console.log(obj.mensajes[i].user);
     }
+    document.getElementById("nav-chat").innerHTML = "";
+    let node2 = document.createElement("div");
+    node2.className += "imgText";
+    node2.innerHTML = `
+                    <div class="userimg">
+                        <a href="perfil.html">
+                            <img src="../img/cara1.png" class="cover" />
+                        </a>
+                    </div>
+                    <h4 class="imgTexth4">
+                    ${recep} <br />
+                        <span>En linea</span>
+                    </h4>
+                    `;
+    // console.log(obj.mensajes[i].receptor);
+    document.getElementById("nav-chat").appendChild(node2);
 }
