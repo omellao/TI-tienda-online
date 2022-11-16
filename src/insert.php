@@ -2,21 +2,10 @@
 
 include_once (dirname(__FILE__)).'/class/Crud.php';
 
-function genSalt($length = 32) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
-} 
-
 $newUser = array(
-    "name" => $_POST['name'],
-    "email" => $_POST['email'],
-    "passwd" => "",
-    "salt" => "",
+    "username" => $_POST['username'],
+    "email" => $_POST['useremail'],
+    "pwd" => "",
     "avatar" => "../views/img/Usuario.png",
     "lastchat" => "",
     "priv_key" => $_POST['priv_key'],
@@ -25,8 +14,8 @@ $newUser = array(
 
 $response = array();
 
-if ($_POST['passwdverify'] ==! $_POST['passwd'] ||
-    $_POST['name'] == null || $_POST['email'] == null) {
+if ($_POST['pwdVerify'] ==! $_POST['pwd'] ||
+    $_POST['username'] == null || $_POST['useremail'] == null) {
 
     $response['status'] = "falta algún campo o las contraseñas no son iguales";
     exit(json_encode($response));
@@ -35,8 +24,8 @@ if ($_POST['passwdverify'] ==! $_POST['passwd'] ||
 $client = new Crud();
 $db = $client->conect();
 
-$resultName = $client->readOneData($db, array("name" => $_POST['name']));
-$resultEmail = $client->readOneData($db, array("email" => $_POST['email']));
+$resultName = $client->readOneData($db, array("name" => $_POST['username']), "users");
+$resultEmail = $client->readOneData($db, array("email" => $_POST['useremail']), "users");
 
 
 if ($resultEmail != NULL || $resultName != NULL) {
@@ -46,10 +35,9 @@ if ($resultEmail != NULL || $resultName != NULL) {
 }
 
 
-$newUser['salt'] = genSalt();
-$newUser['passwd'] = hash("sha512", "{$_POST['passwd']}.{$newUser['salt']}");
+$newUser['pwd'] = password_hash($_POST['pwd'], PASSWORD_BCRYPT);
 
-$result = $db->selectCollection("users")->insertOne($newUser);
+$result = $client->insertData($db, $newUser, "users");
 
 $response['status'] = "todo bien, todo correcto, y yo que me alegro";
 exit(json_encode($response));

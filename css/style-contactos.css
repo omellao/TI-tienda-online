@@ -1,0 +1,77 @@
+#contac {
+    display: none;
+}
+#contac2 {
+    display: none;
+}
+
+.cont-contactor-fondo {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.395);
+    width: 100%;
+    height: 100%;
+}
+
+.contenedor-contactos {
+    background-color: rgb(0, 0, 0);
+    width: 400px;
+    height: 100vh;
+    /* para dejar a la izquierda */
+    top: 0;
+    left: 0;
+}
+.contenedor-contactos li {
+    list-style-type: none;
+}
+
+.lista-contactos {
+    /* sacar margenes feos */
+    margin: 0;
+    padding: 0;
+    /* color: white; */
+    list-style: none;
+}
+
+.un-contacto {
+    background-color: #0e1f2d;
+    display: flex;
+    width: 400px;
+    /* SEPARAMOS */
+    justify-content: space-between;
+
+    padding: 10px;
+}
+.un-contacto1 {
+    display: flex;
+}
+
+.un-contacto1 img {
+    width: 40px;
+}
+
+.un-contacto1 p {
+    color: white;
+    font-size: 20px;
+    align-self: center;
+    padding-left: 15px;
+    float: left;
+}
+
+.un-contacto button {
+    /* justify-content: flex-end; */
+    /* float: right; */
+    /* right: 0; */
+    border: none;
+    color: white;
+    /* padding: 15px 32px; */
+    text-align: center;
+    text-decoration: none;
+    /* display: inline-block; */
+    /* font-size: 16px; */
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0px 4px 5px #000000;
+
+    background-color: #29addd;
+}

@@ -1,6 +1,6 @@
-const form = document.getElementById("form-login");
+const formLogin = document.getElementById("form-login");
 
-const sendData = async dataUser => {
+const sendLogin = async dataUser => {
     const response = await fetch('../../src/login.php', {
         method: 'POST',
         body: dataUser
@@ -11,15 +11,14 @@ const sendData = async dataUser => {
 
 
 
-form.addEventListener("submit", async event => {
+formLogin.addEventListener("submit", async event => {
     event.preventDefault();
 
-    const userData = new FormData(form);
-    const response = await sendData(userData);
+    const userData = new FormData(formLogin);
+    const response = await sendLogin(userData);
 
-    console.log(response);
-    if (response.status == 0) {
-        window.location.replace("../chats/chats.html");
-    }
+    alert(response.msg);
+    if (response.status)
+        window.location.replace("../chats/chats.php");
 });
 

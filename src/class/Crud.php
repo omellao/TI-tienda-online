@@ -3,9 +3,9 @@
 include_once (dirname(__FILE__)).'/Conection.php';
 
 class Crud extends Conection {
-    public function readData($db) {
+    public function readData($db, $coll) {
         try {
-            $collection = $db->selectCollection("users");
+            $collection = $db->selectCollection($coll);
             $data = $collection->find();
             return $data;
 
@@ -14,9 +14,20 @@ class Crud extends Conection {
         }
     }
 
-    public function readOneData($db, Array $filter) {
+    public function readDataMessages($db, $id_chat) {
         try {
-            $collection = $db->selectCollection("users");
+            $collection = $db->selectCollection("messages");
+            $data = $collection->find(array("id_chat" => $id_chat));
+            return $data;
+
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
+    }
+
+    public function readOneData($db, Array $filter, $coll) {
+        try {
+            $collection = $db->selectCollection($coll);
             $data = $collection->findOne($filter);
             return $data;
 
@@ -25,9 +36,9 @@ class Crud extends Conection {
         }
     }
 
-    public function insertData($db, Array $data) {
+    public function insertData($db, Array $data, $coll) {
         try {
-            $collection = $db->selectCollection("users");
+            $collection = $db->selectCollection($coll);
             $result = $collection->insertOne($data);
             return $result;
         } catch (\Throwable $th) {
@@ -45,21 +56,6 @@ class Crud extends Conection {
         }
     }
 }
-
-/* $client = new Crud(); */
-/* $db = $client->conect(); */
-
-/* $wea = $client->readOneData($db, array("name" => "Oscar")); */
-/* $wea1 = $client->readOneData($db, array("email" => "jfdsklfsdja")); */
-
-/* if ($wea != NULL || $wea1 != NULL) { */
-/*     var_dump($wea); */
-/*     exit(); */
-/* } */
-
-/* echo "holaj ksfjsdl"; */
-
-
 
 ?>
 

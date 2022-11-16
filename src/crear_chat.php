@@ -1,24 +1,25 @@
 <?php   
-    require_once "conexion.php";
+    require_once "class/Crud.php";
 
-    $nombre_chat = $_POST['nombre_chat'];
-
-    class Crud extends Conexion{
-        public function insertData($data, $chat) {
-            try {
-                $conexion = parent::conectar();
-                $coleccion = $conexion->$chat;
-                $result = $coleccion->insertOne($data);
-                return $result;
-            } catch (\Throwable $th) {
-                return $th->getMessage();
-            }
-        }
-    }
-
-    // lo ideal es agregar la fecha como esto en los nuevos mensajes para luego ordenarlos
+    session_start();
     
-    $datoNuevo = ["user" => "bot","mensajeWelcom" => "Chat nuevo", "date" => $fechaa];
-    $newData = new Crud();
-    $noseKago = $newData->insertData($datoNuevo, $nombre_chat);
+    $user_login = $_SESSION['username'];
+    $user = $_POST['user'];
+    
+    // echo $user_2;
+    $client = new Crud();
+    $db = $client->conect();
+    $fechaa = date('m-d-Y h:i:s a', time());
+
+    $datoNuevo = array(
+        "users" => array($user_login, $user), 
+        "last_activity" => $fechaa
+    );
+
+    $result = $client->insertData($db, $datoNuevo, "chats");
+    
+    $response = array("status" => "todo bien");
+
+    exit(json_encode($response));
+   
 ?>

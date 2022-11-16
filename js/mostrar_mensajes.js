@@ -52,9 +52,11 @@ async function getText(file) {
 function activarChat() {
     semaforo = setInterval(verChat, 1000);
 }
+
 function verChat() {
-    getText("./php/leerColeccion.php");
+    getText("../../src/leer_contactos.php");
 }
+
 function desactivarChat() {
     clearInterval(semaforo);
 }

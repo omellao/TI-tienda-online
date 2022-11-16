@@ -1,4 +1,4 @@
-const form = document.getElementById("form-signup");
+const formRegist = document.getElementById("form-register");
 
 const sendData = async dataUser => {
     const response = await fetch('../../src/insert.php', {
@@ -57,10 +57,10 @@ const getKeys = async () => {
 };
 
 
-form.addEventListener("submit", async event => {
+formRegist.addEventListener("submit", async event => {
     event.preventDefault();
 
-    const userData = new FormData(form);
+    const userData = new FormData(formRegist);
 
     const keys = await getKeys();
 
@@ -68,6 +68,5 @@ form.addEventListener("submit", async event => {
     userData.append("pub_key", keys.publicKey)
 
     const status = await sendData(userData);
-
     console.log(status);
 });
